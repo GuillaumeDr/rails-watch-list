@@ -5,3 +5,16 @@
 <%= link_to "delete", list_path(@list), method: :delete  %>
 <%= link_to "all lists", lists_path %>
 <%= link_to "New bookmark", new_list_bookmark_path(@list) %>
+
+
+
+<h1>All bookmarks</h1>
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li>
+      <%= bookmark.comment %>
+      <%= bookmark.movie.title %>
+      <%= link_to "delete", bookmark_path(bookmark), method: :delete  %>
+    </li>
+  <% end %>
+</ul>
