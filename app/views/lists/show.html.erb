@@ -3,14 +3,13 @@
 <h2><%= @list.name %></h2>
 
 <%= link_to "delete", list_path(@list), method: :delete  %>
-<%= link_to "all lists", lists_path %>
 <%= link_to "New bookmark", new_list_bookmark_path(@list) %>
 
 
 
 <h1>All bookmarks</h1>
 <ul>
-  <% @bookmarks.each do |bookmark| %>
+  <% @list.bookmarks.each do |bookmark| %>
     <li>
       <%= bookmark.comment %>
       <%= bookmark.movie.title %>

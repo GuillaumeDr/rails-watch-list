@@ -10,9 +10,31 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
-    <div class= "container">
-      <%= yield %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid">
+      <a class="navbar-brand avatar" href="#">
+        <img src="https://images.unsplash.com/photo-1613286713315-674e637dd0fa?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=727" />
+  </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+              <%= link_to "My lists", lists_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "New List",  new_list_path, class: "nav-link"%>
+            </li>
+          </ul>
+      </div>
     </div>
+  </div>
+
+
+      <%= yield %>
   </body>
 </html>
