@@ -1,4 +1,4 @@
-  <div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1605285865887-c18d8a395cc7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928);">
+<div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1605285865887-c18d8a395cc7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928);">
     <div class="container text-center">
       <h1>Save any kind of movies</h1>
       <p>Classic</p>
@@ -11,10 +11,17 @@
     <div class="cards">
       <% @lists.each do |list| %>
         <li>
+        <% if list.photo.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, width: 400, crop: :fill %>')">
+            <%= link_to list.name, list_path(list)%>
+          </div>
+        <% else %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1485846234645-a62644f84728?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=859)">
             <%= link_to list.name, list_path(list)%>
           </div>
+        <% end %>
         </li>
       <% end %>
     </div>
   </ul>
+</div>
